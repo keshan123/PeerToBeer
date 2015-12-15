@@ -24,8 +24,7 @@ class PatronsController < ApplicationController
   # POST /patrons
   # POST /patrons.json
   def create
-    @patron = Patron.new(patron_params)
-
+    @patron = Patron.new( patron_params )
     respond_to do |format|
       if @patron.save
         format.html { redirect_to patrons_url, notice: 'Patron was successfully created.' }
