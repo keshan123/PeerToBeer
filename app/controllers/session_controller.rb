@@ -6,7 +6,7 @@ class SessionController < ApplicationController
   def create
     patron = Patron.find_by(name: params[:name])
     if patron and patron.authenticate(params[:password])
-        sessions[:patron_id] = patron.id
+        session[:patron_id] = patron.id
         redirect_to admin_url
     else
       redirect_to login_url, alert:"Invalid Username or Password"
