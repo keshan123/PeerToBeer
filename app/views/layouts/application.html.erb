@@ -29,14 +29,39 @@
         <li><a href="/patrons">All Patrons</a></li>
         
       </ul>
-      <form class="navbar-form navbar-left" role="search">
-        <div class="form-group">
-          <input type="text" class="form-control" placeholder="Search">
-        </div>
-        <button type="submit" class="btn btn-default">Submit</button>
-      </form>
+            
       <ul class="nav navbar-nav navbar-right">
-        <li><a href="/login">Login</a></li>
+        <!-- Button trigger modal -->
+        <button type="button" class="btn btn-default btn-sm" data-toggle="modal" data-target="#myModal">
+          Login
+        </button>
+
+        <!-- Modal -->
+        <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+          <div class="modal-dialog" role="document">
+            <div class="modal-content">
+              <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title" id="myModalLabel">Please Log in</h4>
+              </div>
+              <div class="modal-body">
+                <div>
+                  <div class="form-group">
+                    <%= label_tag :name, 'Name', class: "loginfont" %>
+                    <%= text_field_tag :name, params[:name], class: "form-control", placeholder: "Please enter your Name" %>
+                  </div>
+                  <div class="form-group">
+                    <%= label_tag :password, 'Password', class: "loginfont" %>
+                    <%= password_field_tag :password, params[:password], class: "form-control", placeholder: "Please enter your Password" %>
+                  </div>
+                </div>
+              </div>
+              <div class="modal-footer">
+                <%= submit_tag "Login", class: "btn btn-primary" %>
+              </div>
+            </div>
+          </div>
+        </div>
       </ul>
     </div><!-- /.navbar-collapse -->
   </div><!-- /.container-fluid -->
