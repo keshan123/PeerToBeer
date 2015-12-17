@@ -46,21 +46,19 @@
                 <h4 class="modal-title" id="myModalLabel">Please Log in</h4>
               </div>
               <div class="modal-body">
-                <div>
-                  <div class="form-group">
-                    <%= label_tag :name, 'Name', class: "loginfont" %>
-                    <%= text_field_tag :name, params[:name], class: "form-control", placeholder: "Please enter your Name" %>
-                  </div>
-                  <div class="form-group">
-                    <%= label_tag :password, 'Password', class: "loginfont" %>
-                    <%= password_field_tag :password, params[:password], class: "form-control", placeholder: "Please enter your Password" %>
-                  </div>
-                </div>
+                <%= form_tag "/admin" do %>
+                  <fieldset>
+                    <legend>Please Log in</legend>
+                    <div>
+                      <%= label_tag :name, 'Name', class: "login-font"  %>
+                      <%= text_field_tag :name, params[:name], class: "form-control", placeholder: "Please enter your Name" %> 
+                      <%= label_tag :password, 'Password',class: "login-font" %>
+                      <%= password_field_tag :password, params[:password],class: "form-control", placeholder: "Please enter your Password" %>
+                      <%= submit_tag "Login" %>
+                    </div>
+                  </fieldset>
+                <% end %>  
               </div>
-              <div class="modal-footer">
-                <%= submit_tag "Login", class: "btn btn-primary" %>
-              </div>
-            </div>
           </div>
         </div>
       </ul>
